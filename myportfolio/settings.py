@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-)t!g!)rc^l&06n$4hl^o1nxd2jbe07%-ywy^a9%8izr9067d^^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['kleudyvictor.pythonanywhere.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -56,7 +56,6 @@ MIDDLEWARE = [
 ]
 CORS_ALLOWED_ORIGINS = [
     "http://127.0.0.1:4000",
-    "https://portfolio-pj0m77par-kleudy-victors-projects.vercel.app/",
     "http://localhost:9000",
     "http://127.0.0.1:9000",
 ]
@@ -150,5 +149,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'  # Por ejemplo, para Gmail
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'kleudyvictor@gmail.com'  # Tu dirección de email
-EMAIL_HOST_PASSWORD = '*kl3udy*'
+EMAIL_HOST_USER = 'portfoliokleudyvictor@gmail.com'  # Tu dirección de email
+EMAIL_HOST_PASSWORD = 'tvtswnewsehfarqw'

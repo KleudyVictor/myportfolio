@@ -14,17 +14,19 @@ def enviar_notificacion_correo(sender, instance, created, **kwargs):
         message = format_html(
             "<title>Portfolio</title>"
             "</head>"
-            "<body>"
-            "<h2>Mensaje de <strong>{}</strong></h2>"
+            "<body>"          
+            "<h4>Mensaje de <strong>{}</strong></h4>"
+            "<hr/>"
+            "<h2 style='color: blue;'><strong>{}</strong></h2>"
+            "<p>{}</p>"
+            "<hr/>"
             "<p>desde: <strong>{}</strong></p>"
-            "<h6>Título: <strong>{}</strong></h6>"
-            "<p>Comentario: <strong>{}</strong></p>"
             "<p>Fecha de Creación: <strong>{}</strong></p>"
-            "</body>", instance.nombre, instance.correo, instance.titulo, instance.comentario, instance.fecha_creacion.strftime("%d/%m/%Y"),
+            "</body>", instance.nombre,  instance.titulo, instance.comentario, instance.correo, instance.fecha_creacion.strftime("%d/%m/%Y"),
         )
 
         send_mail(
-            "Nuevo mensaje recibido",
+            "PORTFOLIO - Nuevo mensaje",
             "",
             settings.EMAIL_HOST_USER,
             [email],

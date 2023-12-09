@@ -7,9 +7,10 @@ class SkillSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class ProjectSerializer(serializers.ModelSerializer):
+    skills_project = SkillSerializer(many=True, source='skills', read_only=True)
     class Meta:
         model = Project
-        fields = '__all__'
+        fields = ('id','nombre','descripcion','foto','skills_project','url')
 
 class CorreoSerializer(serializers.ModelSerializer):
     class Meta:

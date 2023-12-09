@@ -5,10 +5,10 @@ import os
 
 #skills
 class Skill(models.Model):
-    nombre = models.CharField(max_length=50, verbose_name="Nombre")
+    nombre_skill = models.CharField(max_length=50, verbose_name="Nombre")
     foto = models.FileField(upload_to='skill/')
     def __str__(self):
-        return self.nombre
+        return self.nombre_skill
 
 #project
 class Project(models.Model):
