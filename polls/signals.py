@@ -9,20 +9,17 @@ from .models import Correo
 @receiver(post_save, sender=Correo)
 def enviar_notificacion_correo(sender, instance, created, **kwargs):
     if created:
-        email = 'kleudyvictor@gmail.com'
+        email = 'michelalejandro2406@gmail.com'
+        
+        # Leer el archivo HTML
+        with open('./static/email.html', 'r') as file:
+            html_message = file.read()
 
-        message = format_html(
-            "<title>Portfolio</title>"
-            "</head>"
-            "<body>"          
-            "<h4>Mensaje de <strong>{}</strong></h4>"
-            "<hr/>"
-            "<h2 style='color: blue;'><strong>{}</strong></h2>"
-            "<p>{}</p>"
-            "<hr/>"
-            "<p>desde: <strong>{}</strong></p>"
-            "<p>Fecha de Creación: <strong>{}</strong></p>"
-            "</body>", instance.nombre,  instance.titulo, instance.comentario, instance.correo, instance.fecha_creacion.strftime("%d/%m/%Y"),
+        html_message = html_message.format(
+            nombre=instance.nombre,
+            titulo=instance.titulo,
+            comentario=instance.comentario,
+            correo=instance.correo
         )
 
         send_mail(
@@ -31,5 +28,5 @@ def enviar_notificacion_correo(sender, instance, created, **kwargs):
             settings.EMAIL_HOST_USER,
             [email],
             fail_silently=False,
-            html_message=message
+            html_message=html_message
         )
